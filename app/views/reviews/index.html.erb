@@ -1,0 +1,30 @@
+<h1>Our customers opinions</h1>
+
+<p id="notice"><%= notice %></p>
+<%= link_to 'Add a review', new_review_path %>
+
+<div id ="reviews">
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= User.where(id:review.user_id).take.firstname %></td>
+        <td><%= review.body %></td>
+        <td><%= review.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
