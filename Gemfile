@@ -3,6 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.0"
 
+#auth gems
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+
+gem "net-http"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
@@ -71,5 +78,3 @@ group :test do
   gem "webdrivers"
 end
 
-#auth gems
-gem 'devise'
