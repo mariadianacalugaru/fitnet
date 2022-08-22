@@ -1,0 +1,137 @@
+div p{
+    color: white;
+    padding-bottom: 30px;
+  }
+  
+  #btn-fitness-classes{
+  background-color: #f44336;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px 20px;
+  }
+
+  div h1{
+    color: #f44336;
+  }
+  
+  .col{
+    width: 30%;
+  }
+  
+  .card{
+    border-radius: 10%;
+    width: 100%;
+    transition: 0.4s;
+    height: auto;
+  }
+  
+  .card:hover{
+    box-shadow: 0 15px 30px rgb(27, 27, 27);
+    transition: 0.4s;
+  }
+  
+  .card h5{
+    color:#f44336;
+  }
+  
+  .card p{
+    color: white;
+    padding-bottom: 30px;
+  }
+  
+  .card li{
+    color: white;
+  }
+  
+  
+  .card a {
+    color:white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px 20px;
+    top:0;
+    background-color: #f44336
+  }
+  
+  
+  /* Change the color of links on hover */
+  .card a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .parent {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .image2 {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    transition: 0.5s;
+    box-shadow: 30px 30px #f44336;
+  }
+  .image1 {
+    position: relative;
+    top: 30px;
+    left: 30px;
+    width: 30%;
+    transition: 0.5s;
+  }
+  
+  .image3 {
+    position: relative;
+    top: 30px;
+    right: 30px;
+    width: 30%;
+    transition:0.5s;
+  }
+  
+  .image1:hover{
+    margin-left: 15px;
+    margin-right: 15px;
+    transition: 0.5s;
+  }
+  
+  .image2:hover{
+    margin-left: 15px;
+    margin-right: 15px;
+    transition: 0.5s;
+  }
+  
+  .image3:hover{
+    margin-left: 15px;
+    margin-right: 15px;
+    transition: 0.5s;
+  }
+
+  *{
+    font-family:Arial, Helvetica, sans-serif;
+  }
+
+  @media screen and (max-width: 1000px){
+    .col{
+      height: 500px;
+    }
+    .col .bgimg{
+      position:-ms-page;
+      height: 500px;
+    }
+    p .fs-5{
+      font-size:0px;
+    }
+    .row{
+      display: grid;
+    }
+    .card{
+      height: auto;
+    }
+  }
+  
+  
+  
