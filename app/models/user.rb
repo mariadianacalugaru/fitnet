@@ -1,10 +1,13 @@
 class User < ApplicationRecord
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
+
+
+  before_save :capitalize_name
 
   validates :firstname, :lastname, presence: true
 
@@ -25,4 +28,10 @@ class User < ApplicationRecord
     end
   end
 
+  private
+    def capitalize_name
+      self.firstname = self.firstname.split(/\s+/).map(&:downcase).map(&:capitalize).join(' ')
+      self.lastname = self.lastname.split(/\s+/).map(&:downcase).map(&:capitalize).join(' ')
+    end
+    
 end
