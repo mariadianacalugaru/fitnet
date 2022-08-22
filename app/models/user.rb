@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   before_save :capitalize_name
 
+  has_one_attached :avatar
+
   validates :firstname, :lastname, presence: true
 
   def self.from_omniauth(auth)
@@ -28,6 +30,15 @@ class User < ApplicationRecord
       end
     end
   end
+
+  def avatar_thumbnail
+    if avatar.attached?
+      avatar.variant(resize: "100x100!").processed 
+    else
+      "/images/no_avatar.pgn"
+    end
+  end
+
 
   private
     def capitalize_name
