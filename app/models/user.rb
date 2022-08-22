@@ -17,6 +17,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.firstname = auth.info.first_name
       user.lastname = auth.info.last_name
+      user.avatar_url = auth.info.image
     end
   end
 
@@ -33,5 +34,5 @@ class User < ApplicationRecord
       self.firstname = self.firstname.split(/\s+/).map(&:downcase).map(&:capitalize).join(' ')
       self.lastname = self.lastname.split(/\s+/).map(&:downcase).map(&:capitalize).join(' ')
     end
-    
+
 end
