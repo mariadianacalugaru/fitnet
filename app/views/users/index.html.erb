@@ -1,0 +1,21 @@
+<h1>Our Personal Trainers</h1>
+
+<ul>
+  <%  @personal_trainers.each do |personal_trainer|  %>
+    <li> 
+        <% if personal_trainer.provider == 'google_oauth2' && personal_trainer.avatar_url %>
+            <%= image_tag(personal_trainer.avatar_url) %>
+        <% else %>
+            <% if personal_trainer.avatar.attached? %>
+                <%= image_tag(personal_trainer.avatar_thumbnail) %>
+            <% else %>
+                <%= image_tag("/images/no_avatar.png") %>
+            <% end %>
+        <% end %>
+        <%= personal_trainer.firstname %>
+        <%= personal_trainer.lastname %>
+    </li>
+  <% end %>
+</ul>
+
+<br

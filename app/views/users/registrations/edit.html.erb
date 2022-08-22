@@ -58,11 +58,12 @@
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
 
-    <div class="field">
+   <% end %>
+
+   <div class="field">
       <%= f.label :pt, "Are you a Personal Trainer?" %>
       <%= f.check_box :pt %>
-    </div>
-   <% end %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Update" %>
