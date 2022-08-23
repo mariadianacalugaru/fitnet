@@ -342,3 +342,35 @@ input[type="checkbox"]{
 .inputWithIcon{
   margin-right: 1.4%;
 }
+
+.PTlist{
+  width: 60%;
+  margin: 10 auto;
+  padding: 30px;
+  text-align: left;
+  
+}
+
+.accountsettings{
+  height: 80%;
+  width: 80%;
+  margin:auto;
+  padding: 30px;
+  text-align: center;
+  background-color: rgb(27, 27, 27);;  
+  color:white;
+  box-shadow: 10px  10px 40px rgb(27, 27, 27);
+}
+
+.rev{
+  position:relative;
+  height: 80%;
+  width: 80%;
+  margin:auto;
+  margin-top: 10%;
+  padding: 70px;
+  text-align: center;
+  background-color: rgb(27, 27, 27);;  
+  color:white;
+  box-shadow: 10px  10px 40px rgb(27, 27, 27);
+}
