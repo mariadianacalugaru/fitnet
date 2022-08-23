@@ -19,7 +19,9 @@
             <br>
             <%= personal_trainer.firstname %>
             <%= personal_trainer.lastname %>
-            
+            <% if can? :destroy, User %>
+                <%= button_to "Remove", personal_trainer, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button formButton" %>
+            <% end %> 
         </li>
         <br>
         <br>
