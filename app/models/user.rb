@@ -20,6 +20,11 @@ class User < ApplicationRecord
       user.firstname = auth.info.first_name
       user.lastname = auth.info.last_name
       user.avatar_url = auth.info.image
+      if (auth.info.gender == 'male')
+        user.gender = 'M'
+      else  
+        user.gender = 'F'
+      end
     end
   end
 

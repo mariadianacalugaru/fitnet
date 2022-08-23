@@ -1,53 +1,58 @@
 <h2>Sign up</h2>
 <div id="registerForm" class="form" >
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  <br>
-  <div class="field">
-    <% if resource.avatar.attached? %>
-      <%= image_tag(resource.avatar) %>
-    <% else %>
-      <%= image_tag("/images/no_avatar.png") %>
-    <% end %>
-  </div>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <br>
+    <div class="field">
+      <% if resource.avatar.attached? %>
+        <%= image_tag(resource.avatar) %>
+      <% else %>
+        <%= image_tag("/images/no_avatar.png") %>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <h8 style="display:none"<%= f.label :firstname %><br /></h8>
-    <input style="width: 45%" type="text" class="formElement" placeholder="Firstname"<%= f.text_field :firstname,  autofocus: true %>
-  </div>
+    <div class="field">
+      <h8 style="display:none"<%= f.label :firstname %><br /></h8>
+      <input style="width: 45%" type="text" class="formElement" placeholder="Firstname"<%= f.text_field :firstname,  autofocus: true %>
+    </div>
 
-  <div class="field">
-    <h8 style="display:none"<%= f.label :lastname %><br /></h8>
-    <input style="width: 45%" type="text" class="formElement" placeholder="Lastname"<%= f.text_field :lastname %>
-  </div>
+    <div class="field">
+      <h8 style="display:none"<%= f.label :lastname %><br /></h8>
+      <input style="width: 45%" type="text" class="formElement" placeholder="Lastname"<%= f.text_field :lastname %>
+    </div>
 
-  <div class="field">
-    <h8 style="display:none"<%= f.label :email %><br /></h8>
-    <input style="width: 45%" type="email" class="formElement" placeholder="Email"<%= f.email_field :email, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <h8 style="display:none"<%= f.label :email %><br /></h8>
+      <input style="width: 45%" type="email" class="formElement" placeholder="Email"<%= f.email_field :email, autocomplete: "email" %>
+    </div>
 
-  <div class="field">
-    <h8 style="display:none"<%= f.label :password %></h8>
-    <% if @minimum_password_length %>
-      <em style="display:none"> (<%= @minimum_password_length %> characters minimum)</em>
-    <% end %>
-    <input style="width: 45%" type="password" class="formElement" placeholder="Password ( 6 characters minimum)" <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <h8 style="display:none"<%= f.label :password %></h8>
+      <% if @minimum_password_length %>
+        <em style="display:none"> (<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <input style="width: 45%" type="password" class="formElement" placeholder="Password ( 6 characters minimum)" <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <h8 style="display:none"<%= f.label :password_confirmation %><br /></h8>
-    <input style="width: 45%" type="password" class="formElement" placeholder="Password Confirmation"<%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <h8 style="display:none"<%= f.label :password_confirmation %><br /></h8>
+      <input style="width: 45%" type="password" class="formElement" placeholder="Password Confirmation"<%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :pt, "Are you a Personal Trainer?" %>
-    <%= f.check_box :pt %>
-  </div>
+    <div class="field">
+      <%= f.label :gender %>
+      <%= f.select :gender, ['M', 'F'] %> 
+    </div>
 
+    <div class="field">
+      <%= f.label :pt, "Are you a Personal Trainer?" %>
+      <%= f.check_box :pt %>
+    </div>
 
-  <div class="actions">
-    <button class="button formButton"<%= f.submit "Sign up" %>Sign up</button>
-  </div>
+    <div class="actions">
+      <button class="button formButton"<%= f.submit "Sign up" %>Sign up</button>
+    </div>
+
   <% end %>
 
   <%= render "users/shared/links" %>
