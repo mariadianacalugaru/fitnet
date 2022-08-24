@@ -1,0 +1,71 @@
+<h1>Requests</h1>
+<p>Find me in app/views/requests/index.html.erb</p>
+
+<p id="notice"><%= notice %></p>
+
+<% if can? :create, Request %>
+    <%= link_to 'Add a request', new_request_path, class:"button formButton" %>
+<% end %>
+<hr>
+
+
+<div id ="requests">
+    <table>
+        <thead>
+            <tr>
+            <th>User</th>
+            <th>Weight</th>
+            <th>Targets</th>
+            <th>Date</th>
+            <th colspan="3"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @requests.each do |request| %>
+              <% if current_user.admin? || current_user.id == request.user_id %>
+                    <tr>
+                        <td>
+                            <%= User.where(id:request.user_id).take.firstname %>
+                            <%= User.where(id:request.user_id).take.lastname %>
+                        </td>
+                        <td><%= request.weight %></td>
+                        <td>
+                            <% if request.abs? %>
+                                abs 
+                            <% end %>
+                            <% if request.biceps? %>
+                                biceps
+                            <% end %>
+                            <% if request.cardio? %>
+                                cardio
+                            <% end %>
+                            <% if request.glutes? %>
+                                glutes
+                            <% end %>
+                            <% if request.hamstrings? %>
+                                hamstrings
+                            <% end %>
+                            <% if request.pectorals? %>
+                                pectorals
+                            <% end %>
+                            <% if request.quads? %>
+                                quads
+                            <% end %>
+                            <% if request.triceps? %>
+                                triceps
+                            <% end %>
+                        </td>
+                        <td><%= request.created_at %></td>
+                        <% if !request.done?%>
+                            <td><%= button_to "Remove", request, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button formButton" %></td>
+                        <% else %>
+                            <td><button disabled>Closed Request!</td>
+                        <% end %>
+                    </tr>
+                <% end %>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+<br>

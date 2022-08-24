@@ -2,6 +2,10 @@
 <div id="loginForm" class="form loginForm" >
   <h3>WELCOME</h3>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <div class="field">
     <h8 style="display:none"<%= f.label :email %><br /></h8>
     <input type="email" class="formElement" placeholder="Email"<%= f.email_field :email, autofocus: true, autocomplete: "email" %>

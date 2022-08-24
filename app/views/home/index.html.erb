@@ -1,2 +1,7 @@
 <h1>Homepage</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+
+<% if can? :read, Request %>
+    <%= link_to 'Requests', requests_path %>
+<% end %>
+
