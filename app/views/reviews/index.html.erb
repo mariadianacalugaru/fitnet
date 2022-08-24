@@ -2,31 +2,28 @@
 
 <div class="PTlist">
     <h3 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">Our customers opinions</h3>
-    <p id="notice" style="display:none"<%= notice %></p>
+    <p class="notice"><%= notice %></p>
+</div> 
 
-  <hr >
+<hr >
 
- 
-</div>  
-  <div id ="reviews">
-    <table border="1" cellpadding="10px" cellspacing="40px" align="center" width="90%" >
-      <thead>
-       
-      </thead>
+<div id ="reviews">
+  <table border="1" cellpadding="10px" cellspacing="40px" align="center" width="90%" >
+    <tbody>
+      <% @reviews.each do |review| %>
+        <tr>
+          <td style="border: 1px solid"><b><%= User.where(id:review.user_id).take.firstname %></b></td>
+          <td style="border: 1px solid"><%= review.body %></td>
+          <td style="border: 1px solid"><%= review.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table><br><br>
+</div>
 
-      <tbody>
-        <% @reviews.each do |review| %>
-          <tr>
-            <td style="border: 1px solid"><b><%= User.where(id:review.user_id).take.firstname %></b></td>
-            <td style="border: 1px solid"><%= review.body %></td>
-            <td style="border: 1px solid"><%= review.created_at %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table><br><br>
-  </div>
-  <% if can? :create, Review %>
-    <%= link_to 'Add a review', new_review_path, class:"button formButton" %>
-  <% end %>
-  <br>
+<hr>
+
+<% if can? :create, Review %>
+  <%= link_to 'Add a review', new_review_path, class:"button formButton" %>
+<% end %>
 
