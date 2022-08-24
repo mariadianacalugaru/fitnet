@@ -26,6 +26,8 @@
       <a class="link"<%= link_to 'Our PTs', users_path %></a>
       <a class="active link" <%= link_to 'About us', reviews_path %></a>
     </div>
+    <p class="notice" style="display:none"<%= notice %></p>
+    <p class="alert" style="display:none" <%= alert %></p>
     <%= yield %>
   </body>
 </html>
