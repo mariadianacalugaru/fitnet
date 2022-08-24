@@ -1,5 +1,4 @@
 <h1>Requests</h1>
-<p>Find me in app/views/requests/index.html.erb</p>
 
 <p id="notice"><%= notice %></p>
 
@@ -16,6 +15,7 @@
             <th>User</th>
             <th>Weight</th>
             <th>Targets</th>
+            <th>Personal Trainer</th>
             <th>Date</th>
             <th colspan="3"></th>
             </tr>
@@ -53,6 +53,13 @@
                             <% end %>
                             <% if request.triceps? %>
                                 triceps
+                            <% end %>
+                        </td>
+                        <td>
+                            <% if request.pt_id? %>
+                                <%= User.where(id:request.pt_id).take.firstname+' '+User.where(id:request.pt_id).take.lastname %>
+                            <% else %>
+                                All   
                             <% end %>
                         </td>
                         <td><%= request.created_at %></td>

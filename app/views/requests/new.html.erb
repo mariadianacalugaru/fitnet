@@ -1,5 +1,3 @@
-<h1>Requests#new</h1>
-
 <div class="rev" >
     <%= form_with model: [ @request ] do |form| %>
         <% if @request.errors.any? %>
@@ -56,7 +54,12 @@
 
            <%= form.label :triceps, "triceps" %>
            <%= form.check_box :triceps %>
+        </div>
 
+        <div class="field">
+            <h8 <%= form.label :pt_id, 'Personal Trainer' %></h8> 
+            <%= form.select :pt_id, @personal_trainers.map { |personal_trainer| [personal_trainer.firstname+' '+personal_trainer.lastname, personal_trainer.id]}, {include_blank: true} %>
+            
         </div>
 
         <div class="actions">
