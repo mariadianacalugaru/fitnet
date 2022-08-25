@@ -19,6 +19,7 @@ class Ability
     return unless user.pt?
       cannot :create, Request
       cannot :create, Review
+      can :Read, Request, pt_id: user.id
       
     #admins
     return unless user.admin?

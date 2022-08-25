@@ -22,7 +22,7 @@
         </thead>
         <tbody>
             <% @requests.each do |request| %>
-              <% if current_user.admin? || current_user.id == request.user_id %>
+              <% if current_user.admin? || current_user.id == request.user_id || (current_user.pt? && (current_user.id == request.pt_id || !request.pt_id?)) %>
                     <tr>
                         <td>
                             <%= User.where(id:request.user_id).take.firstname %>
