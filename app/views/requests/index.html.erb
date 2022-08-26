@@ -9,7 +9,7 @@
 
 
 <div id ="requests">
-    <table>
+<table border="1" cellpadding="10px" cellspacing="40px" align="center" width="90%" >
         <thead>
             <tr>
             <th>User</th>
@@ -24,12 +24,12 @@
             <% @requests.each do |request| %>
               <% if current_user.admin? || current_user.id == request.user_id || (current_user.pt? && (current_user.id == request.pt_id || !request.pt_id?)) %>
                     <tr>
-                        <td>
+                        <td style="border: 1px solid">
                             <%= User.where(id:request.user_id).take.firstname %>
                             <%= User.where(id:request.user_id).take.lastname %>
-                        </td>
+                        </td style="border: 1px solid">
                         <td><%= request.weight %></td>
-                        <td>
+                        <td style="border: 1px solid">
                             <% if request.abs? %>
                                 abs 
                             <% end %>
@@ -55,14 +55,14 @@
                                 triceps
                             <% end %>
                         </td>
-                        <td>
+                        <td style="border: 1px solid">
                             <% if request.pt_id? %>
                                 <%= User.where(id:request.pt_id).take.firstname+' '+User.where(id:request.pt_id).take.lastname %>
                             <% else %>
                                 All   
                             <% end %>
                         </td>
-                        <td><%= request.created_at %></td>
+                        <td style="border: 1px solid"><%= request.created_at %></td>
                         <% if !request.done?%>
                             <td><%= button_to "Remove", request, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button formButton" %></td>
                         <% else %>

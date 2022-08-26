@@ -14,51 +14,53 @@
         
         <h3 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">New request!</h3>        
         <div class="field">
-            <h8 <%= form.label :age, 'age' %></h8> 
-            <%= form.text_field:age %>
+            <h8 style="display:none"<%= form.label :age, 'age' %></h8> 
+            <input style="width: 45%" type="text" class="formElement" placeholder="age"<%= form.text_field:age %>
         </div>
 
         <div class="field">
-            <h8 <%= form.label :weight, 'weight' %></h8> 
-            <%= form.text_field:weight %>
+            <h8 style="display:none"<%= form.label :weight, 'weight' %></h8> 
+            <input style="width: 45%" type="text" class="formElement" placeholder="weight"<%= form.text_field:weight %>
         </div>
 
         <div class="field">
-            <h8 <%= form.label :height, 'height' %></h8> 
-            <%= form.text_field:height %>
+            <h8 style="display:none"<%= form.label :height, 'height' %></h8> 
+            <input style="width: 45%" type="text" class="formElement" placeholder="height"<%= form.text_field:height %>
         </div>
 
         <div class="field">
-            Your target:
-            <br/>
-           <%= form.label :abs, "abs" %>
-           <%= form.check_box :abs %>
+            <br>
+            <h8 style="font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:18px;">Your target:</h8>
+            <br>
+            <h8 style="font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:18px;"<%= form.label :abs, "abs" %></h8>
+            <%= form.check_box :abs %>
 
-           <%= form.label :biceps, "biceps" %>
-           <%= form.check_box :biceps %>
+            <h8 style="font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:18px;"<%= form.label :biceps, "biceps" %>
+            <%= form.check_box :biceps %>
 
-           <%= form.label :cardio, "cardio" %>
-           <%= form.check_box :cardio %>
+            <h8 style="font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:18px;"<%= form.label :cardio, "cardio" %>
+            <%= form.check_box :cardio %>
 
-           <%= form.label :glutes, "glutes" %>
-           <%= form.check_box :glutes %>
+            <h8 style="font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:18px;"<%= form.label :glutes, "glutes" %>
+            <%= form.check_box :glutes %>
 
-           <%= form.label :hamstrings, "hamstrings" %>
-           <%= form.check_box :hamstrings %>
+            <h8 style="font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:18px;"<%= form.label :hamstrings, "hamstrings" %>
+            <%= form.check_box :hamstrings %>
 
-           <%= form.label :pectorals, "pectorals" %>
-           <%= form.check_box :pectorals %>
+            <h8 style="font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:18px;"<%= form.label :pectorals, "pectorals" %>
+            <%= form.check_box :pectorals %>
 
-           <%= form.label :quads, "quads" %>
-           <%= form.check_box :quads %>
+            <h8 style="font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:18px;"<%= form.label :quads, "quads" %>
+            <%= form.check_box :quads %>
 
-           <%= form.label :triceps, "triceps" %>
-           <%= form.check_box :triceps %>
+            <h8 style="font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:18px;"<%= form.label :triceps, "triceps" %>
+            <%= form.check_box :triceps %>
         </div>
 
         <div class="field">
-            <h8 <%= form.label :pt_id, 'Personal Trainer' %></h8> 
-            <%= form.select :pt_id, @personal_trainers.map { |personal_trainer| [personal_trainer.firstname+' '+personal_trainer.lastname, personal_trainer.id]}, {include_blank: true} %>
+        <br>
+            <h8 style="font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:18px;"<%= form.label :pt_id, 'Personal Trainer' %></h8> 
+            <select class="form-control form-control-sm" style="width: 30%;margin: 0 auto;"<%= form.select :pt_id, @personal_trainers.map { |personal_trainer| [personal_trainer.firstname+' '+personal_trainer.lastname, personal_trainer.id]}, {include_blank: true} %>
             
         </div>
 

@@ -375,3 +375,7 @@ input[type="checkbox"]{
   box-shadow: 10px  10px 40px rgb(27, 27, 27);
 }
 
+.bootstrap-select .dropdown-toggle:focus {
+  outline: none !important;
+  box-shadow: red !important;
+}
