@@ -4,8 +4,11 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-
 <% if can? :read, Request %>
-    <%= link_to 'Requests', requests_path %>
+    <a class="active link"<%= link_to 'Requests', requests_path %></a>
 <% end %>
+
+
+</div>
+
 

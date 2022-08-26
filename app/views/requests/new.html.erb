@@ -60,7 +60,7 @@
         <div class="field">
         <br>
             <h8 style="font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:18px;"<%= form.label :pt_id, 'Personal Trainer' %></h8> 
-            <select class="form-control form-control-sm" style="width: 30%;margin: 0 auto;"<%= form.select :pt_id, @personal_trainers.map { |personal_trainer| [personal_trainer.firstname+' '+personal_trainer.lastname, personal_trainer.id]}, {include_blank: true} %>
+            <select class="form-control form-control-sm" style="width: 30%;margin: 0 auto; border-color: #f44336;"<%= form.select :pt_id, @personal_trainers.map { |personal_trainer| [personal_trainer.firstname+' '+personal_trainer.lastname, personal_trainer.id]}, {include_blank: true} %>
             
         </div>
 

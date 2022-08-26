@@ -83,13 +83,14 @@ html {
 
 .form{
     background-color: rgb(27, 27, 27);;
-    margin: 0 auto;
     margin-top: 3%;
     height: auto;
     width: auto;
     text-align: center;
     color:white;
     box-shadow: 10px  10px 40px rgb(27, 27, 27);
+    text-align: center; 
+    padding: 30px;
 }
 
 .light{
@@ -352,14 +353,15 @@ input[type="checkbox"]{
 }
 
 .accountsettings{
-  height: 80%;
-  width: 80%;
+  height: 100%;
+  width: 90%;
   margin:auto;
   padding: 30px;
   text-align: center;
   background-color: rgb(27, 27, 27);;  
   color:white;
   box-shadow: 10px  10px 40px rgb(27, 27, 27);
+  position:relative;
 }
 
 .rev{
@@ -375,7 +377,3 @@ input[type="checkbox"]{
   box-shadow: 10px  10px 40px rgb(27, 27, 27);
 }
 
-.bootstrap-select .dropdown-toggle:focus {
-  outline: none !important;
-  box-shadow: red !important;
-}

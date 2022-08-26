@@ -64,9 +64,9 @@
                         </td>
                         <td style="border: 1px solid"><%= request.created_at %></td>
                         <% if !request.done?%>
-                            <td><%= button_to "Remove", request, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button formButton" %></td>
+                            <td style="border: 1px solid"><%= button_to "Remove", request, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button formButton" %></td>
                         <% else %>
-                            <td><button disabled>Closed Request!</td>
+                            <td style="border: 1px solid"><button type="button" class="btn btn-secondary btn" aria-disabled="true" disabled>Closed Request!</button></td>
                         <% end %>
                     </tr>
                 <% end %>
