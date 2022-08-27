@@ -1,0 +1,20 @@
+
+<div id ="messages">
+  <table border="1" cellpadding="10px" cellspacing="40px" align="center" width="90%" >
+    <tbody>
+      <% @messages.each do |message| %>
+        <tr>
+          <td style="border: 1px solid"><%= message.body %></td>
+          <td style="border: 1px solid"><%= message.for %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table><br><br>
+</div>
+
+<hr>
+
+<% if can? :create, Message %>
+  <%= link_to 'Add message', new_message_path, class:"button formButton" %>
+<% end %>
+

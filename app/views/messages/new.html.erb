@@ -1,0 +1,26 @@
+<h1>New Message</h1>
+<div class="mes" >
+  <%= form_with model: [ @message ] do |form| %>
+      <% if @message.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+        <ul>
+          <% @message.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <h3 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">Send a message!</h3>        
+    <div class="field">
+      <h8 style="display:none"<%= form.label :body, 'Comment' %></h8> <br>
+      <textarea id="areatesto" cols="50" rows="2" style="width: 90%; height:200px; text-align:top;" <%= form.text_area:body %></textarea>
+    </div>
+
+    <div class="actions">
+      <button class="button formButton"<%= form.submit "Send message" %>Send message</button>
+    </div>
+  <% end %>
+  </div>
