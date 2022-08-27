@@ -1,0 +1,23 @@
+<h1>Schedules#index</h1>
+
+<hr >
+
+<div id ="schedules">
+  <table border="1" cellpadding="10px" cellspacing="40px" align="center" width="90%" >
+    <tbody>
+      <% @schedules.each do |x| %>
+        <% if x.user_id == current_user.id %>
+        <tr>
+          <td style="border: 1px solid"><b><%= x.id %></b></td>
+          <td style="border: 1px solid"><%= User.where(id: x.pt_id).take.firstname %></td>
+          <td style="border: 1px solid"><%= x.description %></td>
+          <td style="border: 1px solid">
+            <a href="/schedule_exercises/<%=x.id%>">Show</a>
+          </td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table><br><br>
+</div>
+

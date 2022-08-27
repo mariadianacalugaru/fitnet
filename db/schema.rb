@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_27_163753) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_27_180800) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -84,6 +84,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_27_163753) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "schedule_exercises", force: :cascade do |t|
+    t.integer "exercise_id", null: false
+    t.integer "schedule_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_schedule_exercises_on_exercise_id"
+    t.index ["schedule_id"], name: "index_schedule_exercises_on_schedule_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "pt_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -108,4 +125,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_27_163753) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "requests", "users"
   add_foreign_key "reviews", "users"
+  add_foreign_key "schedule_exercises", "exercises"
+  add_foreign_key "schedule_exercises", "schedules"
 end

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :users
   resources :reviews, only: [:index, :new, :create]
   resources :messages, only: [:index, :new, :create]
+  resources :schedules, only: [:index, :new, :create]
+  resources :schedule_exercises, only: [:show]
   resources :requests, only: [:index, :new, :create, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
