@@ -10,7 +10,6 @@ class MessagesController < ApplicationController
   
     def create
       @message = Message.new(message_params)
-      @message.for = 0
       if @message.save
         redirect_to messages_path, notice: "Message successfully added." 
       else
@@ -20,7 +19,7 @@ class MessagesController < ApplicationController
   
     private
       def message_params
-        params.require(:message).permit(:body)
+        params.require(:message).permit(:body, :for)
       end
     
   

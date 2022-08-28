@@ -18,7 +18,14 @@
       <h8 style="display:none"<%= form.label :body, 'Comment' %></h8> <br>
       <textarea id="areatesto" cols="50" rows="2" style="width: 90%; height:200px; text-align:top;" <%= form.text_area:body %></textarea>
     </div>
-
+    <div class="field">
+      <h8 style="display:none"<%= form.label :for, 'For' %></h8> <br>
+      <p>
+          <%= form.radio_button:for, '0' %> Everyone<br />
+          <%= form.radio_button:for, '1' %> Users<br />
+          <%= form.radio_button:for, '2' %> Personal Trainers<br />
+      </p>
+    </div>
     <div class="actions">
       <button class="button formButton"<%= form.submit "Send message" %>Send message</button>
     </div>
