@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :reviews, only: [:index, :new, :create]
-  resources :messages, only: [:index, :new, :create]
+  resources :messages, only: [:index, :new, :create,:destroy]
   resources :schedules, only: [:index, :new, :create]
   resources :schedule_exercises, only: [:show]
   resources :requests, only: [:index, :new, :create, :destroy]

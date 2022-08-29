@@ -1,12 +1,31 @@
 
 <div id ="messages">
-  <table border="1" cellpadding="10px" cellspacing="40px" align="center" width="90%" >
+<br>
+  <h3 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">Your messages from our admins</h3>
+  <table border="1" cellpadding="10px" cellspacing="40px" align="center" width="60%">
     <tbody>
       <% @messages.each do |message| %>
+        <% if current_user.pt? %>
         <tr>
-          <td style="border: 1px solid"><%= message.body %></td>
-          <td style="border: 1px solid"><%= message.for %></td>
+          <% if message.for==2 || message.for==0 %>
+          <td style="border: 1px solid"><%= message.body %>
+          <td style="border: 1px solid; display:none"><%= message.for %></td>
+          <td style="border: 1px solid"><%= button_to "Remove", message, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button formButton" %></td>
+          <% end %>
         </tr>
+        <% elsif current_user.id? %>
+        <tr>
+          <% if message.for==1 || message.for==0 %>
+          <td style="border: 1px solid"><%= message.body %>
+          <td style="border: 1px solid; display:none"><%= message.for %></td>
+          <td style="border: 1px solid"><%= button_to "Remove", message, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button formButton" %></td>
+          
+        </tr>
+          <% end %>
+        </tr>
+        <% end %>
+        
+
       <% end %>
     </tbody>
   </table><br><br>
@@ -17,4 +36,5 @@
 <% if can? :create, Message %>
   <%= link_to 'Add message', new_message_path, class:"button formButton" %>
 <% end %>
+
 

@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
   
     def create
       @message = Message.new(message_params)
+      @message.user_id = current_user.id
       if @message.save
         redirect_to messages_path, notice: "Message successfully added." 
       else
@@ -17,11 +18,18 @@ class MessagesController < ApplicationController
       end
     end
   
+    def destroy
+      @message = Message.find(params[:id])
+      @message.destroy
+
+      respond_to do |format|
+        format.html { redirect_to messages_url, notice: "Message successfully removed." }
+      end
+    end
     private
       def message_params
         params.require(:message).permit(:body, :for)
       end
     
-  
+
   end
-  

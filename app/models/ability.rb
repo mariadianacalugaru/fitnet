@@ -13,6 +13,7 @@ class Ability
       can [:read, :create], Review
       can :manage, User, user: user
       can [:read, :create, :destroy], Request, user_id: user.id
+      can [:read, :destroy], Message
       cannot :destroy, User
 
     #personal trainers
@@ -20,6 +21,7 @@ class Ability
       cannot :create, Request
       cannot :create, Review
       can :Read, Request, pt_id: user.id
+      can [:read, :destroy], Message
       
     #admins
     return unless user.admin?
@@ -28,7 +30,7 @@ class Ability
       can [:read, :destroy], Request
       cannot :create, Review
       cannot :create, Request
-
+      can [:read, :create], Message
 
    # user ||= User.new # guest user (not logged in)
 
