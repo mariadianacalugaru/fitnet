@@ -26,6 +26,8 @@ class MessagesController < ApplicationController
         format.html { redirect_to messages_url, notice: "Message successfully removed." }
       end
     end
+
+    
     private
       def message_params
         params.require(:message).permit(:body, :for)
