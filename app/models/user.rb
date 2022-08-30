@@ -12,6 +12,7 @@ class User < ApplicationRecord
   before_save :capitalize_name
 
   has_one_attached :avatar
+  has_one_attached :certificate
 
   validates :firstname, :lastname, presence: true
 
@@ -43,6 +44,12 @@ class User < ApplicationRecord
       avatar.variant(resize: "100x100!").processed 
     else
       "/images/no_avatar.pgn"
+    end
+  end
+
+  def certificate_thumbnail
+    if certificate.attached?
+      certificate.variant(resize: "100x100!").processed 
     end
   end
 

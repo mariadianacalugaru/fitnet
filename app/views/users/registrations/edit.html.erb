@@ -67,6 +67,20 @@
         <%= f.check_box :pt %>
     </div>
 
+    <% if resource.pt? %>
+      <div class="field">
+          <% if current_user.certificate.attached? %>
+            <%= f.label :certificate, "Your PT certification" %>
+            <%= image_tag(current_user.certificate_thumbnail) %>
+          <% else %>
+            <div class="field">
+              <%= f.label :certificate, "You have to upload your certification!" %>
+              <%= f.file_field :certificate %>
+            </div>
+          <% end %>
+      </div>
+    <% end %>
+
     <div class="actions">
       <button class="button formButton"<%= f.submit "Update" %>Update</button>
     </div>
