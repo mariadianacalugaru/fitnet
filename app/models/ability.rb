@@ -7,6 +7,7 @@ class Ability
     #unlogged users
     can :read, Review
     can :read, User
+    cannot :read, Message
 
     #users
     return unless user.present? 
@@ -15,13 +16,15 @@ class Ability
       can [:read, :create, :destroy], Request, user_id: user.id
       can [:read, :destroy], Message
       cannot :destroy, User
+      cannot :create, Message
 
     #personal trainers
     return unless user.pt?
       cannot :create, Request
       cannot :create, Review
-      can :Read, Request, pt_id: user.id
+      can :read, Request, pt_id: user.id
       can [:read, :destroy], Message
+      cannot :create, Message
       
     #admins
     return unless user.admin?
