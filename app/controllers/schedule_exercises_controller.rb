@@ -4,7 +4,7 @@ class ScheduleExercisesController < ApplicationController
     end
   
     def new
-
+        @message = ScheduleExercise.new
     end
 
     def index 
