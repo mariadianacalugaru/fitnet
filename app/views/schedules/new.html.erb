@@ -1,10 +1,53 @@
 <h1>New schedule</h1>
+    <script type='text/javascript'>
+        function addExercise(){
+            var exercises_number = document.getElementById("exercises_number");
+            var number = parseInt(exercises_number.value);
+            // Get the element where the inputs will be added to
+            var container = document.getElementById("container");
+            // Append a node with a random text
+            container.appendChild(document.createTextNode("Exercise " + (number+1)));
+            // Create an <input> element, set its type and name attributes
+            var div = document.createElement("div");
+            var select = document.createElement("select");
+            select.name = "exercise" + number;
+            select.id = "exercise" + number;
+            <% @exercises.each do |exercise| %>
+                var option = document.createElement("option");
+                option.value = "<%= exercise.id %>";
+                option.text = "<%= exercise.name %>";
+                select.add(option);
+            <% end %>
+            div.appendChild(select);
+            var reps = document.createElement("input");
+            reps.id = "reps_exercise_" + number;
+            reps.type = "number";
+            reps.placeholder = "Reps";
+            reps.name = "reps_exercise_" + number;
+            var time = document.createElement("input");
+            time.id = "time_exercise_" + number;
+            time.type = "number";
+            time.name = "time_exercise_" + number;
+            time.placeholder = "Recovery Time";
+            var series = document.createElement("input");
+            series.id = "series_exercise_" + number;
+            series.type = "number";
+            series.name = "series_exercise_" + number;
+            series.placeholder = "Series";
+            div.appendChild(series);
+            div.appendChild(reps);
+            div.appendChild(time);
+            container.appendChild(div);
+            // Append a line break 
+            container.appendChild(document.createElement("br"));
+            exercises_number.value = number + 1;
+        }
+    </script>
 <div class="schedule" >
   <%= form_with model: [ @schedule ] do |form| %>
       <% if @schedule.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
-
         <ul>
           <% @schedule.errors.each do |error| %>
             <li><%= error.full_message %></li>
@@ -13,18 +56,20 @@
       </div>
     <% end %>
     
-    <h3 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">Leave a schedule!</h3>        
+    <h3 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">Make a schedule!</h3>        
+    <div class="field" style="display:none;" >
+      <input type="text" name="user_id" id="user_id" value="<%= params[:id] %>">
+      <input type="text" name="exercises_number" id="exercises_number" value="0"/> 
+    </div> 
     <div class="field">
-      <h8 style="display:none"<%= form.label :user_id, 'user_id' %></h8> <br>
-      <input type="text" id="user_id" value="<%= params[:id] %>" <%= form.text_area:user_id %>
-    </div>
-    <div class="field">
-      <h8 style="display:none"<%= form.label :description, 'description' %></h8> <br>
+      <h8 <%= form.label :description2, 'description' %> </h8> <br>
       <input type="text" id="description"  <%= form.text_area:description %>
     </div>
-
+    <a href="#" id="addExercise" onclick="addExercise()">Add exercise</a>
+    <div id="container">
+    </div>
     <div class="actions">
-      <button class="button formButton"<%= form.submit "Add schedule" %>Add schedule</button>
+      <button class="button formButton"<%= form.submit "Add schedule" %>Add schedule</button>  <- da aggiungere controlli javascript al submit 
     </div>
   <% end %>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_152533) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_01_150127) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -90,6 +90,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_152533) do
     t.integer "schedule_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rep"
+    t.integer "time"
+    t.integer "series"
     t.index ["exercise_id"], name: "index_schedule_exercises_on_exercise_id"
     t.index ["schedule_id"], name: "index_schedule_exercises_on_schedule_id"
   end
