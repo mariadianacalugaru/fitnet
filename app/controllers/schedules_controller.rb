@@ -1,4 +1,8 @@
 class SchedulesController < ApplicationController
+  load_and_authorize_resource
+
+  before_action :authenticate_user!
+  
   def index #mostra tutte le schede
     @schedules = Schedule.where(user_id:current_user.id)
     @exercises = Exercise.all
@@ -13,6 +17,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new(schedule_params)
     @schedule.pt_id = current_user.id
     @schedule.user_id = params[:user_id]
+    @schedule.request_id = params[:request_id]
 
     if @schedule.save
       series = "series_exercise_"
@@ -32,6 +37,7 @@ class SchedulesController < ApplicationController
           puts "Errore inserimento esercizio"
         end
       end
+      Request.where(id:params[:request_id]).update(done:true)
       redirect_to "/schedules" #DA CAMBIARE PERCHE' NON C'E' LA NOTICE DELL'AVVENUTO INVIO DELLA SCHEDA
     else
       render :new, status: :unprocessable_entity 

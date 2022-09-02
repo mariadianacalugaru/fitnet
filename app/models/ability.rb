@@ -15,7 +15,9 @@ class Ability
       can :manage, User, user: user
       can [:read, :create, :destroy], Request, user_id: user.id
       can [:read, :destroy], Message
+      can [:read, :destroy], Schedule
       cannot :destroy, User
+      cannot :create, Schedule
       cannot :create, Message
 
     #personal trainers
@@ -23,6 +25,7 @@ class Ability
       cannot :create, Request
       cannot :create, Review
       can :read, Request, pt_id: user.id
+      can [:read, :create], Schedule
       can [:read, :destroy], Message
       cannot :create, Message
       
@@ -31,9 +34,11 @@ class Ability
       can [:read, :destroy], User
       can :read, Review
       can [:read, :destroy], Request
-      cannot :create, Review
-      cannot :create, Request
+      can [:read, :destroy], Schedule
       can [:read, :create], Message
+      cannot :create, Review
+      cannot :create, Schedule
+      cannot :create, Request
 
    # user ||= User.new # guest user (not logged in)
 

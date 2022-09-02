@@ -22,17 +22,21 @@
     <div class="container-fluid">
     <div class="row">
     <div id="navbar" class="topnav">
-      <img class="logo"<%= image_tag("/images/logo.png") %>
+      <a href="/"><img class="logo"<%= image_tag("/images/logo.png") %> </a>
+
       <% if user_signed_in? %>
-        <h9 > Logged in as <%= current_user.firstname%> <%= current_user.lastname%> </h9>
-        <a class="link"<%= link_to 'Logout', destroy_user_session_path,  data: { turbo_method: :delete } %></a>
-        <a class="link"<%= link_to 'Account Settings', edit_user_registration_path %></a>
+        <a class="link <%= active_class(destroy_user_session_path) %>" <%= link_to "Logout", destroy_user_session_path,  data: { turbo_method: :delete } %></a>
+        <a class="link <%= active_class(edit_user_registration_path) %>" <%= link_to "Account Settings", edit_user_registration_path %></a>
       <% else %>
-        <a class="link"<%= link_to 'Sign up', new_user_registration_path %></a>
-        <a class="link"<%= link_to 'Log in', new_user_session_path %></a>
+        <a class="link <%= active_class(new_user_registration_path) %>" <%= link_to "Sign Up", new_user_registration_path %></a>
+        <a class="link <%= active_class(new_user_session_path) %>" <%= link_to "Log In", new_user_session_path %></a>
       <% end %>
-      <a class="link"<%= link_to 'Our PTs', users_path %></a>
-      <a class="active link" <%= link_to 'About us', reviews_path %></a>
+      <a class="link <%= active_class(users_path) %>" <%= link_to "Our PTs", users_path %></a>
+      <a class="link <%= active_class(reviews_path) %>" <%= link_to "About Us", reviews_path %></a>
+
+      <% if user_signed_in? %>
+        <a class="link <%= active_class(messages_path) %>" <%= link_to "Personal Area", messages_path %></a>
+      <% end %>
     </div>
     <br>
     <br>
@@ -40,11 +44,12 @@
     <!--sidebar-->
     <div class="row">
     <% if user_signed_in? %>
-    <div class="col-3">
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"  id="sidebar">
+    <% if !current_page?(controller: '/home', action: 'index')%>
+    <div class="col-3" >
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" id="sidebar">
       <img id="profile-image"
       <% if current_user.provider == 'google_oauth2' && current_user.avatar_url %>
-         <%= image_tag(current_user.avatar_url) %><br />
+         <%= image_tag(current_user.avatar_url) %><br/>
       <% else %>
       <% if current_user.avatar.attached? %>
         <%= image_tag(current_user.avatar_thumbnail) %>
@@ -58,35 +63,41 @@
       </a>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-          <a href="#" class="nav-link active" style="background-color: #f44336" aria-current="page">
-            Home
+          <!-- USER AND PT LINK -->
+        <li>
+          <a class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Dashboard", messages_path %></a>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link text-white">
-            Dashboard
+          <a class="nav-link text-white <%= active_class(requests_path) %>" <%= link_to "Requests", requests_path %></a>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link text-white">
-            Orders
+          <a class="nav-link text-white <%= active_class(schedules_path) %>" <%= link_to "Schedules", schedules_path %></a>
+          </a>
+        </li>
+        <!-- ADMIN LINK -->
+        <li>
+          <a class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Messages", messages_path %></a>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link text-white">
-            Products
+          <a class="nav-link text-white <%= active_class(users_path) %>" <%= link_to "Personal Trainers", users_path %></a>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link text-white">
-            Customers
+          <a class="nav-link text-white <%= active_class(schedules_path) %>" <%= link_to "Workout Schedules", schedules_path %></a>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white <%= active_class(users_path) %>" <%= link_to "Users", users_path %></a>
           </a>
         </li>
       </ul>
       <hr>
       </div>
       </div> <!--col-3-->
+      <% end %>
       <% end %>
       <div class="col">
         <%= yield %>

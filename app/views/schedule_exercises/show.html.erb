@@ -6,19 +6,21 @@
   <% if @schedule.first != nil %>
   <h1> <%= User.where(id:(Schedule.where(id:params[:id]).take.pt_id)).take.firstname %>  </h1>
   <p> <%= Schedule.where(id:params[:id]).take.description %>  </p>
-  <table border="1" cellpadding="10px" cellspacing="40px" align="center" width="90%" >
-    <tbody>
+    <div class="container-fluid">
+    <div class="row">
       <% @schedule.each do |x| %>
-        <tr>
-          <td style="border: 1px solid"><b><%= x.exercise.bodyPart %></b></td>
-          <td style="border: 1px solid"><b><%= x.exercise.equipment %></b></td>
-          <td style="border: 1px solid"><b><%= x.exercise.gifUrl %></b></td>
-          <td style="border: 1px solid"><b><%= x.exercise.name %></b></td>
-          <td style="border: 1px solid"><b><%= x.exercise.target %></b></td>
-        </tr>
+        <div class="card" style="width: 18rem; margin:0px;">
+          <img class="card-img-top" src="<%= x.exercise.gifUrl %>" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> <%= x.exercise.name %> </h5>
+            <p class="card-text"> <u>Equipment:</u> <%= x.exercise.equipment %>
+            <br><u>Series:</u> <%= x.series %>x<%=x.rep %>
+            <br><u>Recovery time:</u> <%= x.time%>sec </p>
+          </div>
+        </div>
       <% end %>
-    </tbody>
-  </table><br><br>
+      </div>
+    </div>
   <% else %>
     <p> La scheda non e' disponibile al momento </p>
   <% end %>
