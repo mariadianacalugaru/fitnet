@@ -1,0 +1,13 @@
+#sidebar{
+    position:fixed;
+    height:100%;
+    width:25%;
+    left:0px;
+    top:7%;
+}
+
+#profile-image{
+  border-radius:50%;
+  width: 10%;
+  height:5%;
+}
