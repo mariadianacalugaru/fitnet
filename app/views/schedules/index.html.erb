@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 <h1 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">My Schedules</h1>
+=======
+<h1>My Schedules</h1>
+>>>>>>> Stashed changes
 
 <hr >
 
@@ -6,6 +10,7 @@
   <table border="1" cellpadding="10px" cellspacing="40px" align="center" width="90%" >
     <tbody>
       <% @schedules.each do |x| %>
+<<<<<<< Updated upstream
         <% if current_user.admin || (x.user_id == current_user.id) || (x.pt_id == current_user.id) %>
           <tr>
             <td style="border: 1px solid"><%= User.where(id: x.pt_id).take.firstname+' '+User.where(id: x.pt_id).take.lastname %></td>
@@ -19,6 +24,17 @@
             </td>
           </tr>
         <%end%>
+=======
+        <tr>
+          <td style="border: 1px solid"><b><%= x.id %></b></td>
+          <td style="border: 1px solid"><%= User.where(id: x.pt_id).take.firstname %></td>
+          <td style="border: 1px solid"><%= x.description %></td>
+          <td style="border: 1px solid"><%= x.created_at %></td>
+          <td style="border: 1px solid">
+            <a href="/schedule_exercises/<%=x.id%>">Show</a>
+          </td>
+        </tr>
+>>>>>>> Stashed changes
       <% end %>
     </tbody>
   </table><br><br>
