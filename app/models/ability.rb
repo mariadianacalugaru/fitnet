@@ -8,6 +8,7 @@ class Ability
     can :read, Review
     can :read, User
     cannot :read, Message
+    can :read, ScheduleExercise
 
     #users
     return unless user.present? 
@@ -17,6 +18,7 @@ class Ability
       can [:read, :destroy], Message
       can [:read, :destroy], Schedule
       cannot :destroy, User
+      can :read, ScheduleExercise
       cannot :create, Schedule
       cannot :create, Message
 
@@ -27,11 +29,13 @@ class Ability
       can :read, Request, pt_id: user.id
       can [:read, :create], Schedule
       can [:read, :destroy], Message
+      can :read, ScheduleExercise
       cannot :create, Message
       
     #admins
     return unless user.admin?
       can [:read, :destroy], User
+      can :read, ScheduleExercise
       can :read, Review
       can [:read, :destroy], Request
       can [:read, :destroy], Schedule
