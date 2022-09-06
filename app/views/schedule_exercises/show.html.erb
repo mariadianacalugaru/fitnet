@@ -1,10 +1,9 @@
-<h1>ScheduleExercises SINGLE SCHEDULE#index</h1>
+<h1 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">Schedule Exercises</h1>
 
 <hr >
 
 <div id ="schedule">
   <% if @schedule.first != nil %>
-  <h1> <%= User.where(id:(Schedule.where(id:params[:id]).take.pt_id)).take.firstname %>  </h1>
   <p> <%= Schedule.where(id:params[:id]).take.description %>  </p>
     <div class="container-fluid">
     <div class="row">

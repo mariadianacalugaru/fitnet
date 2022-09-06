@@ -4,7 +4,7 @@ class SchedulesController < ApplicationController
   before_action :authenticate_user!
   
   def index #mostra tutte le schede
-    @schedules = Schedule.where(user_id:current_user.id)
+    @schedules = Schedule.all
     @exercises = Exercise.all
   end
 

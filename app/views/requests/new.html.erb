@@ -12,20 +12,20 @@
             </div>
         <% end %>
         
-        <h3 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">New request!</h3>        
+        <h3 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">New request</h3>        
         <div class="field">
             <h8 style="display:none"<%= form.label :age, 'age' %></h8> 
-            <input style="width: 45%" type="text" class="formElement" placeholder="age"<%= form.text_field:age %>
+            <input style="width: 45%" type="text" class="formElement" placeholder="age" required <%= form.text_field:age %>
         </div>
 
         <div class="field">
             <h8 style="display:none"<%= form.label :weight, 'weight' %></h8> 
-            <input style="width: 45%" type="text" class="formElement" placeholder="weight"<%= form.text_field:weight %>
+            <input style="width: 45%" type="text" class="formElement" placeholder="weight" required<%= form.text_field:weight %>
         </div>
 
         <div class="field">
             <h8 style="display:none"<%= form.label :height, 'height' %></h8> 
-            <input style="width: 45%" type="text" class="formElement" placeholder="height"<%= form.text_field:height %>
+            <input style="width: 45%" type="text" class="formElement" placeholder="height" required<%= form.text_field:height %>
         </div>
 
         <div class="field">
@@ -57,15 +57,15 @@
             <%= form.check_box :triceps %>
         </div>
 
-        <div class="field">
         <br>
+        <div class="field">
             <h8 style="font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:18px;"<%= form.label :pt_id, 'Personal Trainer' %></h8> 
             <select class="form-control form-control-sm" style="width: 30%;margin: 0 auto; border-color: #f44336;"<%= form.select :pt_id, @personal_trainers.map { |personal_trainer| [personal_trainer.firstname+' '+personal_trainer.lastname, personal_trainer.id]}, {include_blank: true} %>
-            
         </div>
 
         <div class="actions">
             <button class="button formButton"<%= form.submit "Add request" %>Submit request</button>
         </div>
+        <br>
     <% end %>
   </div>

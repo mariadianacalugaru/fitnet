@@ -43,61 +43,71 @@
     </div>
     <!--sidebar-->
     <div class="row">
-    <% if user_signed_in? %>
-    <% if !current_page?(controller: '/home', action: 'index')%>
-    <div class="col-3" >
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" id="sidebar">
-      <img id="profile-image"
-      <% if current_user.provider == 'google_oauth2' && current_user.avatar_url %>
-         <%= image_tag(current_user.avatar_url) %><br/>
-      <% else %>
-      <% if current_user.avatar.attached? %>
-        <%= image_tag(current_user.avatar_thumbnail) %>
-      <% else %>
-        <%= image_tag("/images/no_avatar.png") %>
-      <% end %>
-      <%end%>
-      <br>
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <h6> Logged in as <%= current_user.firstname%> <%= current_user.lastname%> </h6>
-      </a>
-      <hr>
-      <ul class="nav nav-pills flex-column mb-auto">
-          <!-- USER AND PT LINK -->
-        <li>
-          <a class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Dashboard", messages_path %></a>
-          </a>
-        </li>
-        <li>
-          <a class="nav-link text-white <%= active_class(requests_path) %>" <%= link_to "Requests", requests_path %></a>
-          </a>
-        </li>
-        <li>
-          <a class="nav-link text-white <%= active_class(schedules_path) %>" <%= link_to "Schedules", schedules_path %></a>
-          </a>
-        </li>
-        <!-- ADMIN LINK -->
-        <li>
-          <a class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Messages", messages_path %></a>
-          </a>
-        </li>
-        <li>
-          <a class="nav-link text-white <%= active_class(users_path) %>" <%= link_to "Personal Trainers", users_path %></a>
-          </a>
-        </li>
-        <li>
-          <a class="nav-link text-white <%= active_class(schedules_path) %>" <%= link_to "Workout Schedules", schedules_path %></a>
-          </a>
-        </li>
-        <li>
-          <a class="nav-link text-white <%= active_class(users_path) %>" <%= link_to "Users", users_path %></a>
-          </a>
-        </li>
-      </ul>
-      <hr>
-      </div>
-      </div> <!--col-3-->
-      <% end %>
+      <% if user_signed_in? %>
+        <% if !current_page?(controller: '/home', action: 'index')%>
+        <div class="col-3" >
+          <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" id="sidebar">
+            <img id="profile-image"
+              <% if current_user.provider == 'google_oauth2' && current_user.avatar_url %>
+                <%= image_tag(current_user.avatar_url) %>
+              <% else %>
+                <% if current_user.avatar.attached? %>
+                  <%= image_tag(current_user.avatar_thumbnail) %>
+                <% else %>
+                  <%= image_tag("/images/no_avatar.png") %>
+                <% end %>
+              <%end%>
+            
+            <br>
+            <h6><%= current_user.firstname%> <%= current_user.lastname%> </h6>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <!-- USER AND PT LINK -->
+              <% if !current_user.admin %>
+                <li>
+                  <a class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Dashboard", messages_path %></a>
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-link text-white <%= active_class(requests_path) %>" <%= link_to " My Requests", requests_path %></a>
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-link text-white <%= active_class(schedules_path) %>" <%= link_to "My Schedules", schedules_path %></a>
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-link text-white <%= active_class(new_review_path) %>" <%= link_to "Add a review", new_review_path %></a>
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-link text-white <%= active_class(edit_user_registration_path) %>" <%= link_to "My profile", edit_user_registration_path%></a>
+                  </a>
+                </li>
+              <% else %>
+                <!-- ADMIN LINK -->
+                <li>
+                  <a class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Messages", messages_path %></a>
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-link text-white <%= active_class(users_path) %>" <%= link_to "Personal Trainers", users_path %></a>
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-link text-white <%= active_class(schedules_path) %>" <%= link_to "Workout Schedules", schedules_path %></a>
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-link text-white <%= active_class(users_path) %>" <%= link_to "Users", users_path %></a>
+                  </a>
+                </li>
+              <% end %>
+            </ul>
+            <hr>
+          </div>
+        </div> <!--col-3-->
+        <% end %>
       <% end %>
       <div class="col">
         <%= yield %>
