@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     load_and_authorize_resource
     def index
       @personal_trainers = User.where(pt: 1)
+      @users = User.where(pt: 0)
     end
 
     def destroy

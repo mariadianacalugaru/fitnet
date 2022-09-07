@@ -26,5 +26,36 @@
         <br>
     <% end %>
     </ul>
-
 </div>
+
+<% if user_signed_in? && current_user.admin? %>
+    <hr>
+    <div class="PTlist"  >
+        <h3 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">OUR USERS</h3>
+        <br>
+        <ul>
+        <%  @users.each do |user|  %>
+            <li>
+                <% if user.provider == 'google_oauth2' && user.avatar_url %>
+                    <%= image_tag(user.avatar_url) %>
+                <% else %>
+                    <% if user.avatar.attached? %>
+                        <%= image_tag(user.avatar_thumbnail) %> 
+                    <% else %>
+                        <%= image_tag("/images/no_avatar.png") %> 
+                    <% end %>
+                <% end %>
+                
+                <br>
+                <%= user.firstname %>
+                <%= user.lastname %>
+                <% if can? :destroy, User %>
+                    <%= button_to "Remove", user, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button formButton" %>
+                <% end %> 
+            </li>
+            <br>
+            <br>
+        <% end %>
+        </ul>
+    </div>
+<% end %>

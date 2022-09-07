@@ -63,7 +63,6 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <!-- USER AND PT LINK -->
-<<<<<<< Updated upstream
               <% if !current_user.admin %>
                 <li>
                   <a class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Dashboard", messages_path %></a>
@@ -92,49 +91,14 @@
                   </a>
                 </li>
                 <li>
-                  <a class="nav-link text-white <%= active_class(users_path) %>" <%= link_to "Personal Trainers", users_path %></a>
+                  <a class="nav-link text-white <%= active_class(users_path) %>" <%= link_to "Personal Trainers & Users", users_path %></a>
                   </a>
                 </li>
                 <li>
                   <a class="nav-link text-white <%= active_class(schedules_path) %>" <%= link_to "Workout Schedules", schedules_path %></a>
                   </a>
                 </li>
-                <li>
-                  <a class="nav-link text-white <%= active_class(users_path) %>" <%= link_to "Users", users_path %></a>
-                  </a>
-                </li>
               <% end %>
-=======
-              <li>
-                <a class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Dashboard", messages_path %></a>
-                </a>
-              </li>
-              <li>
-                <a class="nav-link text-white <%= active_class(requests_path) %>" <%= link_to "Requests", requests_path %></a>
-                </a>
-              </li>
-              <li>
-                <a class="nav-link text-white <%= active_class(schedules_path) %>" <%= link_to "Schedules", schedules_path %></a>
-                </a>
-              </li>
-              <!-- ADMIN LINK -->
-              <li>
-                <a class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Messages", messages_path %></a>
-                </a>
-              </li>
-              <li>
-                <a class="nav-link text-white <%= active_class(users_path) %>" <%= link_to "Personal Trainers", users_path %></a>
-                </a>
-              </li>
-              <li>
-                <a class="nav-link text-white <%= active_class(schedules_path) %>" <%= link_to "Workout Schedules", schedules_path %></a>
-                </a>
-              </li>
-              <li>
-                <a class="nav-link text-white <%= active_class(users_path) %>" <%= link_to "Users", users_path %></a>
-                </a>
-              </li>
->>>>>>> Stashed changes
             </ul>
             <hr>
           </div>
