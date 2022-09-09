@@ -17,22 +17,7 @@ class Ability
       can [:read, :destroy], Schedule
       can :read, ScheduleExercise
       can :read, Exercise
-      cannot :destroy, User
-      cannot :create, Schedule
-      cannot :create, Message
-
-     #admins
-     return unless user.admin? 
-     can [:read, :destroy], User
-     can :read, ScheduleExercise
-     can :read, Review
-     can :create, Exercise
-     can [:read, :destroy], Request
-     can [:read, :destroy], Schedule
-     can [:read, :create], Message
-     cannot :create, Review
-     cannot :create, Schedule
-     cannot :create, Request
+     
 
     #personal trainers
     return unless user.pt?
@@ -40,10 +25,23 @@ class Ability
       can [:read, :create], Schedule
       can [:read, :destroy], Message
       can :read, ScheduleExercise
-      cannot :create, Message
+      can :read, Exercise
       cannot :create, Request
       cannot :create, Review
-      
+
+     #admins
+     return unless user.admin? 
+     can [:read, :destroy], User
+     can :read, ScheduleExercise
+     can :read, Review
+     can [:read, :create], Exercise
+     can [:read, :destroy], Request
+     can [:read, :destroy], Schedule
+     can [:read, :create], Message
+     cannot :create, Review
+     cannot :create, Request
+
+   
    
    # user ||= User.new # guest user (not logged in)
 

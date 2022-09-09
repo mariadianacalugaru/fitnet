@@ -38,7 +38,7 @@ class SchedulesController < ApplicationController
         end
       end
       Request.where(id:params[:request_id]).update(done:true)
-      redirect_to "/schedules" #DA CAMBIARE PERCHE' NON C'E' LA NOTICE DELL'AVVENUTO INVIO DELLA SCHEDA
+      redirect_to schedules_path, notice: "Schedule successfully created." 
     else
       render :new, status: :unprocessable_entity 
     end
