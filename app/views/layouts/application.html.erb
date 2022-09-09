@@ -65,6 +65,10 @@
                 <!-- USER AND PT LINK -->
               <% if !current_user.admin %>
                 <li>
+                  <a class="nav-link text-white <%= active_class(edit_user_registration_path) %>" <%= link_to "My profile", edit_user_registration_path%></a>
+                  </a>
+                </li>
+                <li>
                   <a class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Dashboard", messages_path %></a>
                   </a>
                 </li>
@@ -82,10 +86,6 @@
                   </a>
                 </li>
                 <% end %>
-                <li>
-                  <a class="nav-link text-white <%= active_class(edit_user_registration_path) %>" <%= link_to "My profile", edit_user_registration_path%></a>
-                  </a>
-                </li>
               <% else %>
                 <!-- ADMIN LINK -->
                 <li>

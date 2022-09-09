@@ -18,6 +18,7 @@ class Ability
       can [:read, :destroy], Schedule
       can :read, ScheduleExercise
       can :read, Exercise
+      cannot :destroy, User
      
 
     #personal trainers
@@ -29,6 +30,7 @@ class Ability
       can :read, Exercise
       cannot :create, Request
       cannot :create, Review
+      cannot :destroy, User
 
      #admins
      return unless user.admin? 
