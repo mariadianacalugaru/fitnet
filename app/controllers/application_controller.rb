@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 		redirect_to root_path, :alert => exception.message
 	end
 
+	protect_from_forgery with: :exception
+	
     before_action :configure_permitted_parameters, if: :devise_controller?
     
     protected
