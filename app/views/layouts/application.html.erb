@@ -58,8 +58,7 @@
                 <% end %>
               <%end%>
             
-            <br>
-            <h6><%= current_user.firstname%> <%= current_user.lastname%> </h6>
+            <p><%= current_user.firstname%> <%= current_user.lastname%> </p>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <!-- USER AND PT LINK -->
@@ -86,6 +85,10 @@
                 </li>
               <% else %>
                 <!-- ADMIN LINK -->
+                <li>
+                  <a class="nav-link text-white <%= active_class(edit_user_registration_path) %>" <%= link_to "My profile", edit_user_registration_path%></a>
+                  </a>
+                </li>
                 <li>
                   <a class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Messages", messages_path %></a>
                   </a>

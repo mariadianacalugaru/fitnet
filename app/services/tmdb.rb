@@ -17,7 +17,7 @@ class Tmdb
             results = response.parse
 
             results.each do |r|
-                if Exercise.where(target: r['target']).count < 20
+                if !Exercise.exists?name:r['name']
                     exercise = Exercise.new
                     exercise.bodyPart = r['bodyPart']
                     exercise.equipment = r['equipment']

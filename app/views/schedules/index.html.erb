@@ -1,6 +1,13 @@
 <h1 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">My Schedules</h1>
 
 <hr >
+<% if can? :create, Exercise %>
+   <%= link_to 'Update exercises', new_exercise_path, class:"button formButton" %>
+   <br><br>
+   <p class="notice"><%= notice %></p>
+   <hr>
+<% end %>
+
 
 <div id ="schedules">
   <table border="1" cellpadding="10px" cellspacing="40px" align="center" width="90%" >

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   resources :users
+  resources :exercises, only: [:new, :create]
   resources :reviews, only: [:index, :new, :create]
   resources :messages, only: [:index, :new, :create,:destroy]
   resources :schedules, only: [:index, :new, :create]
