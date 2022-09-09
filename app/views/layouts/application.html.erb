@@ -68,11 +68,11 @@
                 <!-- USER AND PT LINK -->
               <% if !current_user.admin %>
                 <li>
-                  <r1 class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Dashboard", messages_path %></a>
+                  <a class="nav-link text-white <%= active_class(messages_path) %>" <%= link_to "Dashboard", messages_path %></a>
                   </a>
                 </li>
                 <li>
-                  <a class="nav-link text-white <%= active_class(requests_path) %>" <%= link_to " My Requests", requests_path, class: %></a>
+                  <a class="nav-link text-white <%= active_class(requests_path) %>" <%= link_to " My Requests", requests_path %></a>
                   </a>
                 </li>
                 <li>
