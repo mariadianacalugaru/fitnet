@@ -1,4 +1,4 @@
-<h1 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">New schedule</h1>
+<h1 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">Make a new schedule!</h1>
     <script type='text/javascript'>
         function addExercise(){
             var exercises_number = document.getElementById("exercises_number");
@@ -55,20 +55,22 @@
         </ul>
       </div>
     <% end %>
-    
-    <h3 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">Make a schedule!</h3>        
+        
     <div class="field" style="display:none;" >
       <input type="text" name="user_id" id="user_id" value="<%= params[:user_id] %>">
       <input type="text" name="request_id" id="request_id" value="<%= params[:request_id] %>">
       <input type="text" name="exercises_number" id="exercises_number" value="0"/> 
     </div> 
+    <br>
     <div class="field">
-      <h8 <%= form.label :description2, 'description' %> </h8> <br>
-      <input type="text" id="description"  <%= form.text_area:description %>
+      <input type="text" id="description"style="width: 400px; height: 100px; text-align:top; border-radius: 20px;" <%= form.text_area:description, placeholder:"Description" %>
     </div>
-    <a href="#" id="addExercise" onclick="addExercise()">Add exercise</a>
+    <br>
+    <a href="#" id="addExercise" class="button formButton" onclick="addExercise()">Add exercise</a>
     <div id="container">
     </div>
+    <br>
+    <br>
     <div class="actions">
       <button class="button formButton"<%= form.submit "Add schedule" %>Add schedule</button>  <- da aggiungere controlli javascript al submit 
     </div>
