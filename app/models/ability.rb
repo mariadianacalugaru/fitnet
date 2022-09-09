@@ -7,6 +7,7 @@ class Ability
     #unlogged users
     can :read, Review
     can :read, User
+
     
     #users
     return unless user.present? 
