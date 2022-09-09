@@ -23,13 +23,16 @@ div p{
   .card{
     border-radius: 10%;
     width: 100%;
-    transition: 0.4s;
     height: auto;
   }
   
   .card:hover{
     box-shadow: 0 15px 30px rgb(27, 27, 27);
     transition: 0.4s;
+    margin-left: 15px;
+    margin-top: 15px;
+    transition: 0.5s;
+
   }
   
   .card h5{
@@ -110,9 +113,6 @@ div p{
     transition: 0.5s;
   }
 
-  *{
-    font-family:Arial, Helvetica, sans-serif;
-  }
 
   @media screen and (max-width: 1000px){
     .col{

@@ -1,5 +1,5 @@
 <!-- <h2>Edit <%= resource_name.to_s.humanize %></h2> -->
-<div class="accountsettings" >
+<div class="form formLogin" >
   <h3 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">Your Profile</h3>
   <br>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -23,17 +23,17 @@
 
     <div class="field">
       <%= f.label :firstname %><br />
-      <input style="width: 45%" type="text" class="formElement"<%= f.text_field :firstname, readonly: true %>
+      <%= f.text_field :firstname, readonly: true, class:"formElement", style:"width: 45%" %>
     </div>
 
     <div class="field">
       <%= f.label :lastname %><br />
-      <input style="width: 45%" type="text" class="formElement"<%= f.text_field :lastname, readonly: true %>
+      <%= f.text_field :lastname, readonly: true, class:"formElement", style:"width: 45%" %>
     </div>
     
     <div class="field">
       <%= f.label :email %><br />
-      <input style="width: 45%" type="email" class="formElement"<%= f.email_field :email, readonly: true, autocomplete: "email" %>
+      <%= f.email_field :email, readonly: true, autocomplete: "email" , class:"formElement", style:"width: 45%" %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -43,7 +43,7 @@
     <% if resource.provider != 'google_oauth2' %>
       <div class="field">
         <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <input style="width: 45%" type="password" class="formElement"<%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.password_field :password, autocomplete: "new-password", class:"formElement", style:"width: 45%" %>
         <% if @minimum_password_length %>
           <br />
           <em><%= @minimum_password_length %> characters minimum</em>
@@ -52,12 +52,12 @@
 
       <div class="field">
         <%= f.label :password_confirmation %><br />
-        <input style="width: 45%" type="password" class="formElement" <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"formElement", style:"width: 45%" %>
       </div>
 
       <div class="field">
         <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <input style="width: 45%" type="password" class="formElement" <%= f.password_field :current_password, autocomplete: "current-password" %>
+        <%= f.password_field :current_password, autocomplete: "current-password", class:"formElement", style:"width: 45%" %>
       </div>
 
     <% end %>
