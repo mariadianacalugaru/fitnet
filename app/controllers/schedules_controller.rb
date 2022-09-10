@@ -45,6 +45,17 @@ class SchedulesController < ApplicationController
 
   end
 
+  def destroy
+    @schedule = Schedule.find(params[:id])
+    @schedule.destroy
+
+    respond_to do |format|
+      format.html { redirect_to schedules_url, notice: "Schedule successfully removed." }
+    end
+
+  end 
+
+
   private
     def schedule_params
       params.require(:schedule).permit(:user_id, :description)

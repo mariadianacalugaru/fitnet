@@ -22,7 +22,7 @@
               <a href="/schedule_exercises/<%=x.id%>", class="button formButton">Show </a>
             </td>
             <td style="border: 1px solid">
-              <%= button_to "Remove", @x, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button" %>
+              <%= button_to "Remove", x, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button" %>
             </td>
           </tr>
         <% end %>
