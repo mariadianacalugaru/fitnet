@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @user.destroy
       respond_to do |format|
-        format.html { redirect_to users_url, notice: "Movie was successfully destroyed." }
+        format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       end
     end
 end
