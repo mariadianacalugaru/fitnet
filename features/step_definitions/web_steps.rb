@@ -253,6 +253,9 @@ Then /^show me the page$/ do
   save_and_open_page
 end
 
+
 Given /^I am a registered user$/ do
-  @user= User.create(email: "user@fitnet.it", password: "fitnet")
+  @user = User.create(firstname: 'Lorenzo', lastname: 'Mastrandrea', email: 'lorenzo@gmail.com', password: 'lorenzo2000', password_confirmation: 'lorenzo2000', gender: 'M');
+  @user.save!
 end
+
