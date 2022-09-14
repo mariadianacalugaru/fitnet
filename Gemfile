@@ -15,6 +15,11 @@ gem "omniauth-rails_csrf_protection"
 
 gem 'cancancan'
 gem 'net-http'
+
+gem 'rspec'
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
