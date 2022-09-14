@@ -15,17 +15,17 @@
         <h3 style="font-family:'Trebuchet MS', Helvetica, sans-serif;">New request</h3>        
         <div class="field">
             <h8 style="display:none"<%= form.label :age, 'age' %></h8> 
-            <input style="width: 45%" type="text" class="formElement" placeholder="age" oninvalid="this.setCustomValidity('age cannot be blank')" required  <%= form.text_field:age %>
+            <input style="width: 45%" type="text" class="formElement" placeholder="age" oninvalid="this.setCustomValidity('Age can\'t be blank')" required  <%= form.text_field:age %>
         </div>
 
         <div class="field">
             <h8 style="display:none"<%= form.label :weight, 'weight' %></h8> 
-            <input style="width: 45%" type="text" class="formElement" placeholder="weight" oninvalid="this.setCustomValidity('weight cannot be blank')" required <%= form.text_field:weight %>
+            <input style="width: 45%" type="text" class="formElement" placeholder="weight" oninvalid="this.setCustomValidity('Weight can\'t be blank')" required <%= form.text_field:weight %>
         </div>
 
         <div class="field">
             <h8 style="display:none"<%= form.label :height, 'height' %></h8> 
-            <input style="width: 45%" type="text" class="formElement" placeholder="height"  oninvalid="this.setCustomValidity('height cannot be blank')" required <%= form.text_field:height %>
+            <input style="width: 45%" type="text" class="formElement" placeholder="height"  oninvalid="this.setCustomValidity('Height can\'t be blank')" required <%= form.text_field:height %>
         </div>
 
         <hr>
