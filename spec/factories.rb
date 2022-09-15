@@ -1,30 +1,31 @@
 FactoryBot.define do
+    require 'faker'
 
     factory :user, class: User do
-        firstname {"Andrea"}
-        lastname {"Bianchi"}
-        email {"andrea@gmail.com"}
-        password {"andrea2000"}
+        firstname {Faker::Name.first_name}
+        lastname {Faker::Name.last_name}
+        email {Faker::Internet.safe_email}
+        password {"user2000"}
         gender {"M"}
         pt {false}
         admin {false}
     end
 
     factory :pt, class: User do
-        firstname {"Marco"}
-        lastname {"Marini"}
-        email {"marco@gmail.com"}
-        password {"marco2000"}
+        firstname {Faker::Name.first_name}
+        lastname {Faker::Name.last_name}
+        email {Faker::Internet.safe_email}
+        password {"pt2000"}
         gender {"M"}
         pt {true}
         admin {false}
     end
 
     factory :admin, class: User do
-        firstname {"Mario"}
-        lastname {"Rossi"}
-        email {"mario@gmail.com"}
-        password {"mario2000"}
+        firstname {Faker::Name.first_name}
+        lastname {Faker::Name.last_name}
+        email {Faker::Internet.safe_email}
+        password {"admin2000"}
         gender {"M"}
         pt {false}
         admin {true}

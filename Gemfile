@@ -19,6 +19,8 @@ gem 'net-http'
 gem 'rspec'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
+gem 'rails-controller-testing'
+gem 'faker'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
