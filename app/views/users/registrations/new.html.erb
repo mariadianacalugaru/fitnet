@@ -33,6 +33,10 @@
     </div>
 
     <div class="field">
+      <%= f.text_area :description, class:"formElement", placeholder:"Say something about you...", style:"width: 45%" %>
+    </div>
+
+    <div class="field">
       <%= f.label :gender %>
       <%= f.select :gender, ['M', 'F'] %> 
     </div>

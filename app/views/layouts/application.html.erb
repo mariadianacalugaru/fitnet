@@ -52,18 +52,20 @@
         <div class="col-3" >
           <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" id="sidebar">
             <a class="navbar-brand" href="#">
-            <img alt="Logo" width="40" height="40" style="border-radius:45%" class="d-inline-block align-text-top"
-              <% if current_user.provider == 'google_oauth2' && current_user.avatar_url %>
-                <%= image_tag(current_user.avatar_url) %>
-              <% else %>
-                <% if current_user.avatar.attached? %>
-                  <%= image_tag(current_user.avatar_thumbnail) %>
+            <h4>
+              <img alt="Logo" width="40" height="40" style="border-radius:45%" class="d-inline-block align-text-top"
+                <% if current_user.provider == 'google_oauth2' && current_user.avatar_url %>
+                  <%= image_tag(current_user.avatar_url) %>
                 <% else %>
-                  <%= image_tag("/images/no_avatar.png") %>
-                <% end %>
-              <%end%>
-            
-            <%= current_user.firstname%> <%= current_user.lastname%>
+                  <% if current_user.avatar.attached? %>
+                    <%= image_tag(current_user.avatar_thumbnail) %>
+                  <% else %>
+                    <%= image_tag("/images/no_avatar.png") %>
+                  <% end %>
+                <%end%>
+              
+              <%= current_user.firstname%> <%= current_user.lastname%>
+            </h4>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">

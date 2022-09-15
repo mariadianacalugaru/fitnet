@@ -3,8 +3,13 @@
     <br>
     <ul>
     <%  @personal_trainers.each do |personal_trainer|  %>
+        <hr>
         <li>
-            
+            <h4>
+                <%= personal_trainer.firstname %>
+                <%= personal_trainer.lastname %>
+            </h4>
+            <br>
             <% if personal_trainer.provider == 'google_oauth2' && personal_trainer.avatar_url %>
                 <%= image_tag(personal_trainer.avatar_url) %>
             <% else %>
@@ -16,14 +21,12 @@
             <% end %>
             
             <br>
-            <%= personal_trainer.firstname %>
-            <%= personal_trainer.lastname %>
+            <br>
+            <%= personal_trainer.description %>
             <% if can? :destroy, User %>
                 <%= button_to "Remove", personal_trainer, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button formButton" %>
             <% end %> 
         </li>
-        <br>
-        <br>
     <% end %>
     </ul>
 </div>
@@ -35,7 +38,13 @@
         <br>
         <ul>
         <%  @users.each do |user|  %>
+        <hr>
             <li>
+                <h4>
+                    <%= user.firstname %>
+                    <%= user.lastname %>
+                </h4>
+                <br>
                 <% if user.provider == 'google_oauth2' && user.avatar_url %>
                     <%= image_tag(user.avatar_url) %>
                 <% else %>
@@ -47,14 +56,12 @@
                 <% end %>
                 
                 <br>
-                <%= user.firstname %>
-                <%= user.lastname %>
+                </br></br>
+                <%= user.description %>
                 <% if can? :destroy, User %>
                     <%= button_to "Remove", user, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button formButton" %>
                 <% end %> 
             </li>
-            <br>
-            <br>
         <% end %>
         </ul>
     </div>

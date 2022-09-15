@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
       @message = Message.new(message_params)
       @message.user_id = current_user.id
       if @message.save
-        redirect_to messages_path, notice: "Message successfully added." 
+        redirect_to messages_path, notice: "Message successfully sent." 
       else
         render :new, status: :unprocessable_entity 
       end

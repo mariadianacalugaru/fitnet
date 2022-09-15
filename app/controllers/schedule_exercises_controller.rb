@@ -4,7 +4,7 @@ class ScheduleExercisesController < ApplicationController
     
     
     def show #mostra una scheda
-        authorize! :read, @schedule_exercises, :message => "BEWARE: you are not authorized to read this schedule."
+       
         @schedule = ScheduleExercise.where(schedule_id:params[:id])
     end
   
