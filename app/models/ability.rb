@@ -43,6 +43,7 @@ class Ability
      can [:read, :create], Message
      cannot :create, Review
      cannot :create, Request
+     cannot :create, Schedule
 
    
    

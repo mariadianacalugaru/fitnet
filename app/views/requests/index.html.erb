@@ -71,7 +71,7 @@
                                 <a class="button"  href="/schedules/new?user_id= <%= request.user_id %>&request_id= <%= request.id %>">Make</a>    
                             <% end %>
                             <hr>
-                            <%= button_to "Remove", request, data: { turbo_confirm: "Are you sure?" }, method: :delete, class:"button" %>
+                            <%= button_to "Remove", request, method: :delete, class:"button" %>
                         <% else %>
                             <button type="button" class="btn btn-secondary btn" aria-disabled="true" disabled>Closed Request!</button>
                         <% end %>

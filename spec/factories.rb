@@ -33,11 +33,11 @@ FactoryBot.define do
 
     factory :review do
        body {"One of the best fitness applications I've ever tried!"}
-       user_id {FactoryBot.create(:user)}
+       user_id {FactoryBot.create(:user).id}
     end
 
     factory :request do
-        user_id {FactoryBot.create(:user)}
+        user_id {FactoryBot.create(:user).id}
         age {25}
         height {190}
         weight {90}
