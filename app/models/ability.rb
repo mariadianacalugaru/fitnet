@@ -26,6 +26,7 @@ class Ability
       can :read, Request, pt_id: user.id
       can [:read, :create], Schedule
       can [:read, :destroy], Message
+      can [:read, :destroy], Request
       can :read, ScheduleExercise
       can :read, Exercise
       cannot :create, Request
