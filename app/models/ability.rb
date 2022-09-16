@@ -25,7 +25,7 @@ class Ability
     return unless user.pt?
       can :read, Request, pt_id: user.id
       can [:read, :create], Schedule
-      can [:read, :destroy], Message
+      can [:read], Message
       can [:read, :destroy], Request
       can :read, ScheduleExercise
       can :read, Exercise
@@ -41,7 +41,7 @@ class Ability
      can [:read, :create], Exercise
      can [:read, :destroy], Request
      can [:read, :destroy], Schedule
-     can [:read, :create], Message
+     can [:read, :create, :destroy], Message
      cannot :create, Review
      cannot :create, Request
      cannot :create, Schedule
