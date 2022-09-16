@@ -1,10 +1,14 @@
 #sidebar{
     position:fixed;
+    overflow: auto;
     height:100%;
     width:25%;
     left:0px;
     top:7%;
+    margin: 0;
+    padding: 0;
 }
+
 
 #profile-image{
   border-radius:50%;
@@ -12,3 +16,19 @@
   height:50%;
 }
 
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}

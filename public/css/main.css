@@ -256,6 +256,10 @@ table {
   caption-side: bottom;
   border-collapse: collapse; }
 
+.table-container {
+    width: 100%;
+    overflow-x: auto
+  }
 caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;

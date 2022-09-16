@@ -17,8 +17,7 @@
     <div class="field">
       <h8 style="display:none"<%= form.label :body, 'Comment' %></h8> <br>
       <textarea id="body" cols="50" rows="2" style="width: 90%; height:200px; text-align:top;" oninvalid="this.setCustomValidity('body cannot be blank')" required <%= form.text_area :body %></textarea>
-    </div>
-    <br><br>
+    <br>
     <div class="actions">
       <button class="button formButton"<%= form.submit "Add review" %>Add review</button>
     </div>

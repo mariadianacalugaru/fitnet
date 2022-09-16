@@ -29,12 +29,12 @@
       <% end %>
     </tbody>
   </table><br><br>
+  <% if can? :create, Message %>
+    <%= link_to 'Add message', new_message_path, class:"button formButton" %>
+  <% end %>
 </div>
 
 <hr>
 
-<% if can? :create, Message %>
-  <%= link_to 'Add message', new_message_path, class:"button formButton" %>
-<% end %>
 
 
