@@ -4,7 +4,7 @@ class SchedulesController < ApplicationController
   before_action :authenticate_user!
   
   def index #mostra tutte le schede
-    @schedules = Schedule.all
+    @schedules = Schedule.all.order('created_at DESC')
     @exercises = Exercise.all
   end
 

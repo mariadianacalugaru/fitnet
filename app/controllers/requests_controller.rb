@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @requests = Request.all
+    @requests = Request.all.order('created_at DESC')
   end
 
   def new
