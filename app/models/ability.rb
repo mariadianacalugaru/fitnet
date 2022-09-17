@@ -12,7 +12,7 @@ class Ability
     #users
     return unless user.present? 
       can [:read, :create], Review
-      can :manage, User, user: user
+      can :manage, User, user_id: user.id
       can [:read, :create, :destroy], Request, user_id: user.id
       can [:read], Message
       can [:read, :destroy], Schedule
