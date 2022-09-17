@@ -1,5 +1,3 @@
-# README
-
 # DESCRIZIONE
 Questo progetto è stato realizzato nell'ambito del corso Architetture Software e Sicurezza Informatica 2021/2022.
 La nostra applicazione fornisce un servizio di fitness che dà la possibilità di richiedere e fornire schede di 
@@ -10,28 +8,28 @@ allenamento personalizzate secondo gli obiettivi di ogni singolo cliente.
 ```
 git clone https://github.com/mariadianacalugaru/fitnet
 ```
-- Installare le gemme
+- Installare le gemme:
 ```
 bundle install
 ```
-- Migrazione database
+- Migrazione database:
 ```
 rake db:migrate
 ```
-- Avvio server all'interno della repository
+- Avvio server all'interno della repository:
 ```
 bin/rails server
 ```
-- Esecuzione test accettazione
+- Esecuzione test accettazione:
 ```
 bin/rake cucumber
 ```
-- Esecuzione test unità
+- Esecuzione test unità:
 ```
 bundle exec rspec
 ```
 
-# PROGETTO REALIZZATO DA
+# PROGETTO REALIZZATO DA:
 - Maria Diana Calugaru
 - Samuele Cervo
 - Rosapia Laudati
