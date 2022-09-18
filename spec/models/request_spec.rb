@@ -31,14 +31,14 @@ RSpec.describe Review, type: :model do
 
     describe "Create a Request without weight " do
         it "shouldn't be permitted" do
-            request = Request.create(user_id: @user.id, age: '26', height: '185', abs: true, cardio: true, quads: true, pt_id: @pt)
+            request = Request.create(user_id: @user.id, age: '26', height: '185', abs: true, cardio: true, quads: true, pt_id: @pt.id)
             expect(request).to_not be_valid
         end
     end
 
     describe "Create a valid Request " do
         it "should be permitted" do
-            request = Request.create(user_id: @user.id, age: '26', height: '185', weight: '85', abs: true, cardio: true, quads: true, pt_id: @pt)
+            request = Request.create(user_id: @user.id, age: '26', height: '185', weight: '85', abs: true, cardio: true, quads: true, pt_id: @pt.id)
             expect(request).to be_valid
         end
 
