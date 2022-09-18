@@ -10,41 +10,41 @@ RSpec.describe Review, type: :model do
 
     describe "Create a Request without a user " do
         it "shouldn't be permitted" do
-            request = Request.create(age: '26', height: '185', weight: '85', abs: true, cardio: true, quads: true, pt_id: @pt)
+            request = Request.create(age: '26', height: '185', weight: '85', abs: true, cardio: true, quads: true, pt_id: @pt.id)
             expect(request).to_not be_valid
         end
     end
 
     describe "Create a Request without age " do
         it "shouldn't be permitted" do
-            request = Request.create(user_id: @user, height: '185', weight: '85', abs: true, cardio: true, quads: true, pt_id: @pt)
+            request = Request.create(user_id: @user.id, height: '185', weight: '85', abs: true, cardio: true, quads: true, pt_id: @pt.id)
             expect(request).to_not be_valid
         end
     end
 
     describe "Create a Request without height " do
         it "shouldn't be permitted" do
-            request = Request.create(user_id: @user, age: '26', weight: '85', abs: true, cardio: true, quads: true, pt_id: @pt)
+            request = Request.create(user_id: @user.id, age: '26', weight: '85', abs: true, cardio: true, quads: true, pt_id: @pt.id)
             expect(request).to_not be_valid
         end
     end
 
     describe "Create a Request without weight " do
         it "shouldn't be permitted" do
-            request = Request.create(user_id: @user, age: '26', height: '185', abs: true, cardio: true, quads: true, pt_id: @pt)
+            request = Request.create(user_id: @user.id, age: '26', height: '185', abs: true, cardio: true, quads: true, pt_id: @pt)
             expect(request).to_not be_valid
         end
     end
 
     describe "Create a valid Request " do
         it "should be permitted" do
-            request = Request.create(user_id: @user, age: '26', height: '185', weight: '85', abs: true, cardio: true, quads: true, pt_id: @pt)
-            expect(request).to_not be_valid
+            request = Request.create(user_id: @user.id, age: '26', height: '185', weight: '85', abs: true, cardio: true, quads: true, pt_id: @pt)
+            expect(request).to be_valid
         end
 
         it "should be permitted also not to choose a pt" do
-            request = Request.create(user_id: @user, age: '26', height: '185', weight: '85', abs: true, cardio: true, quads: true)
-            expect(request).to_not be_valid
+            request = Request.create(user_id: @user.id, age: '26', height: '185', weight: '85', abs: true, cardio: true, quads: true)
+            expect(request).to be_valid
         end
     end
 

@@ -23,8 +23,8 @@ RSpec.describe Review, type: :model do
 
     describe "Create a Review correctly " do
         it "should be permitted" do
-            review = Review.create(user_id: @user, body: "This is one of the best fitness app I've ever tried!")
-            expect(review).to_not be_valid
+            review = Review.create(user_id: @user.id, body: "This is one of the best fitness app I've ever tried!")
+            expect(review).to be_valid
         end
     end
 

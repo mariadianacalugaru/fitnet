@@ -15,7 +15,7 @@ class Ability
       can :manage, User, user_id: user.id
       can [:read, :create, :destroy], Request, user_id: user.id
       can [:read], Message
-      can [:read, :destroy], Schedule
+      can [:read, :destroy], Schedule, user_id: user.id
       can :read, ScheduleExercise
       can :read, Exercise
       cannot :destroy, User
@@ -23,10 +23,9 @@ class Ability
 
     #personal trainers
     return unless user.pt?
-      can :read, Request, pt_id: user.id
+      can [:read, :destroy], Request, pt_id: user.id
       can [:read, :create], Schedule
       can [:read], Message
-      can [:read, :destroy], Request
       can :read, ScheduleExercise
       can :read, Exercise
       cannot :create, Request
